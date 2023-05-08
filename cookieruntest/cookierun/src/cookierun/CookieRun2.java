@@ -32,36 +32,36 @@ public class CookieRun2 {
 	Button escButton; // esc 버튼
 	
 	//배경 이미지
-	private ImageIcon backIc = new ImageIcon("testimg/backTest.png"); // 제일 뒷 배경
+	private ImageIcon backIc = new ImageIcon("src/testimg/backTest.png"); // 제일 뒷 배경
 	private ImageIcon secondBackIc = new ImageIcon("배경이미지2");  // 2번째 배경
 	
 	// 쿠키 이미지 아이콘들
-	private ImageIcon cookieIc = new ImageIcon("testimg/cookieTest.png");// 기본모션
-	private ImageIcon jumpIc = new ImageIcon("testimg/jumpTest.png"); // 점프모션
-	private ImageIcon doubleJumpIc = new ImageIcon("testimg/doubleJumpTest.png");// 더블점프 모션
-	private ImageIcon fallIc = new ImageIcon("testimg/fallTest.png");// 낙하모션(더블 점프후);
-	private ImageIcon slideIc = new ImageIcon("testimg/slideTest.png"); // 슬라이드 모션
-	private ImageIcon hitIc = new ImageIcon("testimg/hitTest.png"); // 부딪치는 모션
+	private ImageIcon cookieIc = new ImageIcon("src/testimg/cookieTest.png");// 기본모션
+	private ImageIcon jumpIc = new ImageIcon("src/testimg/jumpTest.png"); // 점프모션
+	private ImageIcon doubleJumpIc = new ImageIcon("src/testimg/doubleJumpTest.png");// 더블점프 모션
+	private ImageIcon fallIc = new ImageIcon("src/testimg/fallTest.png");// 낙하모션(더블 점프후);
+	private ImageIcon slideIc = new ImageIcon("src/testimg/slideTest.png"); // 슬라이드 모션
+	private ImageIcon hitIc = new ImageIcon("src/testimg/hitTest.png"); // 부딪치는 모션
 	
 	// 젤리 이미지 아이콘들
-	private ImageIcon jelly1Ic = new ImageIcon("testimg/jelly1Test.png"); 
-	private ImageIcon jelly2Ic = new ImageIcon("testimg/jelly2Test.png");
-	private ImageIcon jelly3Ic = new ImageIcon("testimg/jelly3Test.png");
-	private ImageIcon jellyHPIc= new ImageIcon("testimg/jellyHPTest.png");
+	private ImageIcon jelly1Ic = new ImageIcon("src/testimg/jelly1Test.png"); 
+	private ImageIcon jelly2Ic = new ImageIcon("src/testimg/jelly2Test.png");
+	private ImageIcon jelly3Ic = new ImageIcon("src/testimg/jelly3Test.png");
+	private ImageIcon jellyHPIc= new ImageIcon("src/testimg/jellyHPTest.png");
 	
-	private ImageIcon jellyEffectIc = new ImageIcon("testimg/effectTest.png");
+	private ImageIcon jellyEffectIc = new ImageIcon("src/testimg/effectTest.png");
 	
 	//발판 이미지 아이콘들
 	
-	private ImageIcon field1Ic = new ImageIcon("testimg/footTest.png");
-	private ImageIcon field2Ic = new ImageIcon("testimg/footTest2.png");
+	private ImageIcon field1Ic = new ImageIcon("src/testimg/footTest.png");
+	private ImageIcon field2Ic = new ImageIcon("src/testimg/footTest2.png");
 	
 	// 장애물 이미지 아이콘들
 	
-	private ImageIcon tacle10Ic = new ImageIcon("testimg/tacleTest10.png"); // 1칸 장애물
-	private ImageIcon tacle20Ic = new ImageIcon("testimg/tacleTest20.png"); // 2칸 장애물
-	private ImageIcon tacle30Ic = new ImageIcon("testimg/tacleTest30.png"); // 3칸 장애물
-	private ImageIcon tacle40Ic = new ImageIcon("testimg/tacleTest35.png"); // 3칸 장애물
+	private ImageIcon tacle10Ic = new ImageIcon("src/testimg/tacleTest10.png"); // 1칸 장애물
+	private ImageIcon tacle20Ic = new ImageIcon("src/testimg/tacleTest20.png"); // 2칸 장애물
+	private ImageIcon tacle30Ic = new ImageIcon("src/testimg/tacleTest30.png"); // 3칸 장애물
+	private ImageIcon tacle40Ic = new ImageIcon("src/testimg/tacleTest35.png"); // 3칸 장애물
 	
 	//리스트 생성
 	private List<Jelly> jellyList = new ArrayList<>();// 젤리 리스트
@@ -684,7 +684,7 @@ public class CookieRun2 {
 		
 	}
 	/* Main */
-	public static void mian(String[] args) {
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() { // 스레드를 위한 Runnable 익명객체
 			public void run() {
 				try {
