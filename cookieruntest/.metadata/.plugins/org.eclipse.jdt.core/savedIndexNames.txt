@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+G:\SelfStudy\projectTest\cookieruntest\.metadata\.plugins\org.eclipse.jdt.core
+2478084694.index
+552046373.index
+78097804.index

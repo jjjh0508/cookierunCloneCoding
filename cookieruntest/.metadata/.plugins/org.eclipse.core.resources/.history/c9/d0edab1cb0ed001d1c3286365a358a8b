@@ -1,0 +1,174 @@
+package cookierun;
+
+import java.awt.AlphaComposite;
+import java.awt.BorderLayout;
+import java.awt.Button;
+import java.awt.EventQueue;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+
+
+public class CookieRun2 {
+	private JFrame frame;
+	JPanel panel; /// 패널
+	Button escButton; // esc 버튼
+	
+	//배경 이미지
+	private ImageIcon backIc = new ImageIcon("testimg/backTest.png"); // 제일 뒷 배경
+	private ImageIcon secondBackIc = new ImageIcon("배경이미지2");  // 2번째 배경
+	
+	// 쿠키 이미지 아이콘들
+	private ImageIcon cookieIc = new ImageIcon("testimg/cookieTest.png");// 기본모션
+	private ImageIcon jumpIc = new ImageIcon("testimg/jumpTest.png"); // 점프모션
+	private ImageIcon doubleJumpIc = new ImageIcon("testimg/doubleJumpTest.png");// 더블점프 모션
+	private ImageIcon fallIc = new ImageIcon("testimg/fallTest.png");// 낙하모션(더블 점프후);
+	private ImageIcon slideIc = new ImageIcon("testimg/slideTest.png"); // 슬라이드 모션
+	private ImageIcon hitIc = new ImageIcon("testimg/hitTest.png"); // 부딪치는 모션
+	
+	// 젤리 이미지 아이콘들
+	private ImageIcon jelly1Ic = new ImageIcon("testimg/jelly1Test.png"); 
+	private ImageIcon jelly2Ic = new ImageIcon("testimg/jelly2Test.png");
+	private ImageIcon jelly3Ic = new ImageIcon("testimg/jelly3Test.png");
+	private ImageIcon jelly4Ic = new ImageIcon("testimg/hitTest.png");
+	
+	private ImageIcon jellyEffectIc = new ImageIcon("testimg/effectTest.png");
+	
+	//발판 이미지 아이콘들
+	
+	private ImageIcon field1Ic = new ImageIcon("testimg/footTest.png");
+	private ImageIcon field2Ic = new ImageIcon("testimg/footTest2.png");
+	
+	// 장애물 이미지 아이콘들
+	
+	private ImageIcon tacle10Ic = new ImageIcon("testimg/tacleTest10.png"); // 1칸 장애물
+	private ImageIcon tacle20Ic = new ImageIcon("testimg/tacleTest20.png"); // 2칸 장애물
+	private ImageIcon tacle30Ic = new ImageIcon("testimg/tacleTest30.png"); // 3칸 장애물
+	private ImageIcon tacle40Ic = new ImageIcon("testimg/tacleTest35.png"); // 3칸 장애물
+	
+	//리스트 생성
+	private List<Jelly> jellyList = new ArrayList<>();// 젤리 리스트
+	private List<Field> fieldList = new ArrayList<>();// 발판 리스트
+	private List<Tacle> tacleList = new ArrayList<>();// 장애물 리스트
+	
+	private int runPage = 0; // 한화면 이동할때마다 체력을 깍기 위한 변수
+	private int runStage =1; // 스테이지를 확인하는 변수 (미구현)
+	private boolean escKeyOn = false; // 일시정지를 위한 esc키 확인
+	private int resultScore = 0; // 결과 점수를 수집하는 변수
+	private int gameSpeed = 3; // 게임 속도
+	private int nowField = 2000; // 발판의 높이를 저장
+	private boolean downKeyOn = false;// 다운키가 눌렸는지 여부
+	
+	// 이미지 파일로 된 맵을 가져온다.
+	private int[] sizeArr; // 이미지의 넓이와 높이를 가져오는 1차원 배열
+	private int[][] colorArr; // 이미지의 x y좌표의 픽셀 색값을 저장하는 2차원 배열
+	
+	//paintComponent 관련 레퍼런스 배치
+	private Image buffImage; // 더블 버퍼 이미지
+	private Graphics buffg; // 더블버퍼 g
+	
+	private AlphaComposite alphaComposite; // 투명도 관련 오브젝트
+	
+	Cookie c1; // 쿠키 오브젝트
+	back b11; // 배경1-1 오브젝트
+	back b12; // 배경1-2 오브젝트
+	
+	int face; // 쿠키의 정면
+	int foot; // 쿠키의 발
+	
+	class MyPanel extends JPanel{
+		public MyPanel() {
+			setFocusable(true); // setFocusable 키입력 우선권 획득 키보드나 마우스 리스너의 우선권을 준다.
+			
+			// 쿠키 인스턴스 생성
+			c1 = new Cookie(cookieIc.getImage());
+			// 쿠키의 정면 위치 / 쿠키의 x값과 높이를 더한 값
+			face = c1.getX()+ c1.getWidth();
+			// 쿠키의 발 밑위치 / 쿠키의 y값과 높이를 더한값
+			foot= c1.getY()+ c1.getHeigth();
+			
+			// 배경 1-1 인스턴스 생성
+			b11 = new Back(backIc.getImage(),0,0,
+					backIc.getImage().getWidth(null),backIc.getImage().getHeight(null)); // y값 조정필요
+			
+			b12 = new Back(backIc.getImage(),0,0,
+					backIc.getImage().getWidth(null),backIc.getImage().getHeight(null)); // y값 조정필요
+			
+			// 맵 정보 불러오기
+			try {
+				sizeArr = Util.getSize("testimg/firstMap1.png");
+				co
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
+
+		@Override
+		protected void paintComponent(Graphics g) {
+			
+		}
+		
+	}
+	// 메소드 추가
+	void mapMove() {
+		
+	}
+	void hit() {
+		
+	}
+	void fall() {
+		
+	}
+	void jump() {
+		
+	}
+	/* Main */
+	private void mian(String[] args) {
+		EventQueue.invokeLater(new Runnable() { // 스레드를 위한 Runnable 익명객체
+			public void run() {
+				try {
+					CookieRun2 window = new CookieRun2();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		}
+	public CookieRun2() {
+		initialize();
+	}
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100,100,800,500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		panel = new MyPanel();
+		frame.getContentPane().add(panel,BorderLayout.CENTER); // 센터
+		panel.setLayout(null);
+		
+		escButton = new Button("재시작"); // 버튼 이름
+		escButton.setBounds(350,240,50,30);
+		escButton.addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				panel.remove(escButton); // esc가 눌리면 재시작
+				escKeyOn = false;
+			}
+			
+		});
+	}
+	
+	
+}
