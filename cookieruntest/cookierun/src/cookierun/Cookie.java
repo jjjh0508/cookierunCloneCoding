@@ -15,8 +15,8 @@ public class Cookie {
 	private int x = 160;
 	private int y= 0;
 	private int width = 80;
-	private int heigth = 120;
-	
+	private int height = 120;
+	                     
 	//쿠키의 투명도(0이 투명, 255가 완전 불투명
 	private int alpha = 255;
 	
